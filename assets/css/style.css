@@ -31,6 +31,16 @@
     width: 550px;
     animation: clouds-animation 20s infinite linear;
 }
+.counter{
+    top: 0;
+    position: absolute;
+    margin: 100px;
+    border-radius: 30px;
+    background-color: green;
+}
+#currentNumber{
+    color: white;
+}
 @keyframes pipe-animation {
     from {
         right:-80px;
