@@ -3,7 +3,7 @@ const pipe = document.querySelector(".pipe-game");
 
 const jump = () => {
     mario.classList.add("jump-mario");
-    setTimeout ( () => {
+    setTimeout (() => {
         mario.classList.remove("jump-mario");
     }, 500);
 }
