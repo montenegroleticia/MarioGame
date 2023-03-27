@@ -1,20 +1,21 @@
 const mario = document.querySelector(".super-mario");
 const pipe = document.querySelector(".pipe-game");
+let firstRun = true;
 
 const jump = () => {
-    mario.classList.add("jump-mario");
-    setTimeout (() => {
-        mario.classList.remove("jump-mario");
-    }, 500);
-}
+  mario.classList.add("jump-mario");
+  setTimeout(() => {
+    mario.classList.remove("jump-mario");
+  }, 500);
+};
+
 const loopGame = setInterval(() => {
-    const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window
+  const pipePosition = pipe.offsetLeft;
+  const marioPosition = +window
     .getComputedStyle(mario)
     .bottom.replace("px", "");
 
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition <80) {
-
+  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
     pipe.style.animation = "none";
     pipe.style.left = `${pipePosition}px`;
 
@@ -25,8 +26,18 @@ const loopGame = setInterval(() => {
     mario.style.width = "75px";
     mario.style.marginLeft = "45px";
 
-    clearInterval(loopGame)
-    }
+    clearInterval(loopGame);
+  }
 }, 10);
 
-document.addEventListener("keydown", jump);
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space") {
+    jump();
+    console.log("pular");
+  }
+});
+
+if (firstRun) {
+  jump();
+  firstRun = false;
+}
