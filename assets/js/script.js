@@ -1,6 +1,7 @@
 const mario = document.querySelector(".super-mario");
 const pipe = document.querySelector(".pipe-game");
 let firstRun = true;
+let contador = 0;
 
 const jump = () => {
   mario.classList.add("jump-mario");
@@ -33,6 +34,8 @@ const loopGame = setInterval(() => {
 document.addEventListener("keydown", function (event) {
   if (event.code === "Space") {
     jump();
+    contador += 1;
+    document.getElementById("currentNumber").innerHTML = contador;
     console.log("pular");
   }
 });
